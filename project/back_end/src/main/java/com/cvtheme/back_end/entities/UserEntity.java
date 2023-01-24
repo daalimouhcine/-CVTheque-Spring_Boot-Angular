@@ -6,8 +6,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Entity
 @Inheritance(strategy = InheritanceType.JOINED)
+@Entity(name = "user")
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,6 +26,6 @@ public class UserEntity {
     private String password;
 
     @Column(name = "profileimage", nullable = false)
-    private String profileImage;
+    private String profileImage = "default";
 
 }
