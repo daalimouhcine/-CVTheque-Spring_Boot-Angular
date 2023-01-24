@@ -1,0 +1,34 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Actor" as GUser
+actor "CME" as User1
+actor "Teacher" as User2
+actor "Student" as User3
+
+package "Actor" {
+    GUser --> (Login to the system)
+    GUser --> (Register to the system)
+    GUser --> (View Home Page)
+    GUser --> (Edit profile)
+    GUser --> (View profile)
+    GUser --> (View Students, CVs and Motivation letters)
+}
+
+package "CME" {
+    User1 --> (Comment to his/her CV or Motivation Letter)
+}
+
+package "Student" {
+    User3 --> (upload CV)
+    User3 --> (upload Motivation Letter)
+    User3 --> (Comment to his/her CV or Motivation Letter)
+}
+
+GUser <|-- User1
+GUser <|-- User2
+GUser <|-- User3
+
+
+@enduml

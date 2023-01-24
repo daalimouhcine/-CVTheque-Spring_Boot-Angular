@@ -1,0 +1,68 @@
+@startuml
+class User {
+   String firstName
+   String lastName
+   String email
+   String password
+   String profileImage
+}
+
+class Student {
+   String status
+}
+
+class CME {
+}
+
+class Teacher {
+}
+
+class Promo {
+   String name
+   String year
+   String major
+}
+
+class Resume {
+   String cvName
+}
+
+class MotivationLetter {
+   String letter
+}
+
+class MotivationLetterComment {
+   String message
+   Instant timestamp
+}
+
+class ResumeComment {
+   String message
+   Instant timestamp
+}
+
+class Notification {
+   String docType
+   boolean isSeen
+   Timestamp date
+}
+
+
+User <|-- Student
+User <|-- CME
+User <|-- Teacher
+
+Student "1" *-- "*" Resume
+Student "1" *-- "*" MotivationLetter
+Student "1" *-- "*" ResumeComment
+Student "1" *-- "*" MotivationLetterComment
+
+Promo "1" o-- "*" Student
+Promo "1" o-- "1" Teacher
+
+CME "1" -- "*" ResumeComment
+CME "1" -- "*" MotivationLetterComment
+
+ResumeComment "*" *-- "1" Resume
+MotivationLetterComment "*" *-- "1" MotivationLetter
+@enduml

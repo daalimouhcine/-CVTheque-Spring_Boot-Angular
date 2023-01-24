@@ -6,8 +6,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Inheritance(strategy = InheritanceType.JOINED)
-@Entity(name = "user")
+@MappedSuperclass
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
