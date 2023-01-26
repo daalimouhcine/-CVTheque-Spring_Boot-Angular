@@ -1,3 +1,5 @@
+# docker file
+
 # first stage of building angular image
 FROM node:lts as build
 RUN mkdir -p /app
